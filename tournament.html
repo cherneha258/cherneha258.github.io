@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Turnaj | Turnaj Her 2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Spusťte turnaj a zvolte vítěze v jedné z herních kategorií.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<header>
+    <nav class="topnav" role="navigation" aria-label="Hlavní navigace">
+        <h1>Turnaj</h1>
+        <ul>
+            <li><a href="index.html">Úvod</a></li>
+            <li><a href="nominees.html">Nominace</a></li>
+            <li><a href="tournament.html" class="active">Turnaj</a></li>
+            <li><a href="winners.html">Vítězové</a></li>
+            <li><a href="about.html">O projektu</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h2>Spusť turnaj</h2>
+
+    <div id="category-selection">
+        <p>Vyber kategorii:</p>
+        <button onclick="startTournament('2025')">Hra roku 2025 (16 her)</button>
+        <button onclick="startTournament('2009')">Klasiky (16 her)</button>
+    </div>
+
+    <div id="tournament-area"></div>
+</main>
+
+<footer>
+    <p>&copy; 2025 2025 Turnaj Her. Projekt chernehat WEa.</p>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

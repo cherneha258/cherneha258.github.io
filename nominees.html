@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Nominace | Turnaj Her 2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Přehled nominovaných her pro turnaj v kategoriích Hra roku 2025 a Klasiky.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<header>
+    <nav class="topnav" role="navigation" aria-label="Hlavní navigace">
+        <h1>Nominované hry</h1>
+        <ul>
+            <li><a href="index.html">Úvod</a></li>
+            <li><a href="nominees.html" class="active">Nominace</a></li>
+            <li><a href="tournament.html">Turnaj</a></li>
+            <li><a href="winners.html">Vítězové</a></li>
+            <li><a href="about.html">O projektu</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h2>Seznam nominovaných her</h2>
+
+    <div id="nominee-list">
+        <p>Načítám seznam her...</p>
+    </div>
+    
+    <button onclick="window.location.href='tournament.html'">Zpět na kategorie</button>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 Turnaj Her. Projekt chernehat WEa.</p>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+    loadNomineesToPage();
+    // Nastavuje aktivní třídu po načtení, i když je v kódu fixně.
+    setNavActive('nominees'); 
+</script>
+
+</body>
+</html>

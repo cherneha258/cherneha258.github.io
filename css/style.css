@@ -1,0 +1,225 @@
+:root {
+  --bg: #111;
+  --panel: #1e1e1e;
+  --accent: crimson;
+  --text: #fff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* --- Navigace --- */
+.topnav {
+  background: #222;
+  border-bottom: 4px solid rgba(255,255,255,0.03);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.topnav ul {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 16px;
+  align-items: center;
+}
+
+.topnav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  display: inline-block;
+  border-radius: 6px;
+}
+
+.topnav a:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.topnav a.active {
+  background: var(--accent);
+  font-weight: 700;
+}
+
+/* --- Page Layout --- */
+/* Změna na obecný styl, protože main v one-page kódu se stalo .page */
+main {
+  padding: 28px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Hlavní obsahová oblast (pro vícesouborovou strukturu) */
+main > * {
+  padding: 18px;
+  background: var(--panel);
+  border-radius: 8px;
+  margin-top: 18px;
+}
+
+.hidden { display: none; } /* Zůstalo pro ovládání turnaje */
+
+/* Buttons - Obecný styl */
+button {
+  padding: 12px 18px;
+  margin: 6px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(0.9);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* --- Turnaj (STYLY PRO IKONY) --- */
+.match {
+  background: #181818;
+  padding: 18px;
+  margin: 18px auto;
+  border-radius: 8px;
+  width: 70%;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Úprava pro tlačítka v souboji s ikonami */
+.match button {
+  width: 45%;
+  height: auto;
+  margin: 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  background: #2a2a2a;
+  color: white;
+  border: 3px solid transparent;
+  transition: border 0.2s ease-in-out;
+}
+
+.match button:hover {
+  filter: none;
+  border: 3px solid var(--accent);
+}
+
+/* Styl pro obrázky uvnitř tlačítek */
+.match button img {
+  display: block;
+  margin-bottom: 10px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Výsledek */
+#tournament-area h2 {
+    color: var(--accent);
+    margin-top: 20px;
+}
+#tournament-area img.winner-icon {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+
+/* STYLY PRO NOMINANTY */
+#nominee-list h3 {
+    margin-top: 30px;
+    color: var(--accent);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 5px;
+}
+
+.nominee-grid { /* Změnil jsem z .nominee-list na grid pro lepší layout */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.nominee-item {
+    display: flex;
+    align-items: center;
+    background: #2a2a2a;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    font-weight: 500;
+}
+
+.nominee-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* STYLY PRO VÍTĚZE */
+#winner-list h4 {
+    margin-top: 25px;
+    color: var(--accent);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 5px;
+}
+#winner-list ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding-left: 0;
+}
+#winner-list li {
+    margin-bottom: 5px;
+}
+
+
+/* Media Query pro mobily: Tlačítka pod sebou */
+@media (max-width: 600px) {
+  .match {
+    width: 100%;
+    flex-direction: column;
+  }
+  .match button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Tisk */
+@media print {
+  header, footer { display: none; }
+  main > * {
+      padding: 0;
+      background: none;
+      border: none;
+  }
+  body { color: #000; background: #fff; }
+  a { text-decoration: underline; color: #000; }
+}

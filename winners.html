@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Vítězové | Turnaj Her 2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Historie vítězů, které jste uložili po dokončení turnajů.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<header>
+    <nav class="topnav" role="navigation" aria-label="Hlavní navigace">
+        <h1>Hall of Fame</h1>
+        <ul>
+            <li><a href="index.html">Úvod</a></li>
+            <li><a href="nominees.html">Nominace</a></li>
+            <li><a href="tournament.html">Turnaj</a></li>
+            <li><a href="winners.html" class="active">Vítězové</a></li>
+            <li><a href="about.html">O projektu</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h2>Přehled vítězů</h2>
+
+    <div id="winner-list">
+        </div>
+
+    <button onclick="clearWinners()">Vymazat celou historii vítězů</button>
+</main>
+
+<footer>
+    <p>&copy; 2025 Turnaj Her. Projekt chernehat WEa.</p>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+    loadWinnersAndRender();
+    // setNavActive('winners'); // Není potřeba, je v HTML
+</script>
+
+</body>
+</html>
