@@ -255,14 +255,14 @@ function showWinner(w, category) {
     // Zobrazení jména vítěze
     area.innerHTML += `<h2>🏆 Vítěz: <strong>${escapeHtml(w)}</strong></h2>`;
 
-    // Tlačítko pre uložení
+    // Tlačítko pro uložení
     let saveBtn = document.createElement("button");
     saveBtn.textContent = "💾 Uložit vítěze";
     saveBtn.onclick = () => saveWinner(w, category);
     saveBtn.id = "save-winner-btn";
     area.appendChild(saveBtn);
 
-    // Tlačítko pre restart (vrací na stránku s kategoriemi, čímž znovu zobrazí výběr)
+    // Tlačítko pro restart (vrací na stránku s kategoriemi, čímž znovu zobrazí výběr)
     let restartBtn = document.createElement("button");
     restartBtn.textContent = "Restartovat";
     restartBtn.onclick = () => navigateTo('tournament.html');
@@ -376,4 +376,5 @@ function clearWinners() {
         loadWinnersAndRender();
         alert("Všichni vítězové byli vymazáni.");
     }
+
 }
