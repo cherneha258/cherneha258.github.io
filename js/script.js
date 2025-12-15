@@ -237,6 +237,39 @@ function nextRound() {
     prepareRound();
 }
 
+
+
+/* ===========================
+    NOMINANTI – Zobrazení
+=========================== */
+
+function loadNomineesToPage() {
+    const div = document.getElementById("nominee-list");
+    if (!div) return;
+
+    // Funkce pro vykreslení seznamu s ikonami
+    const renderList = (title, gameArray) => {
+        let html = `<h3>${title} (${gameArray.length} her)</h3>`;
+        html += '<ul class="nominee-grid">';
+        
+        gameArray.forEach(game => {
+            const iconSrc = getGameIcon(game);
+            html += `
+                <li class="nominee-item">
+                    <img src="${iconSrc}" alt="Ikona hry ${escapeHtml(game)}" class="nominee-icon" loading="lazy">
+                    <span>${escapeHtml(game)}</span>
+                </li>
+            `;
+        });
+        html += '</ul>';
+        return html;
+    };
+
+    // Vykreslení obou kategorií
+    div.innerHTML = renderList("Hra roku 2025", GAMES_2025);
+    div.innerHTML += renderList("Klasiky", GAMES_2009_OPTIMIZED);
+}
+
 /* ===========================
     VÍTĚZ – Zobrazení a Uložení
 =========================== */
@@ -299,37 +332,6 @@ function saveWinner(gameName, categoryTitle) {
 }
 
 
-/* ===========================
-    NOMINANTI – Zobrazení
-=========================== */
-
-function loadNomineesToPage() {
-    const div = document.getElementById("nominee-list");
-    if (!div) return;
-
-    // Funkce pro vykreslení seznamu s ikonami
-    const renderList = (title, gameArray) => {
-        let html = `<h3>${title} (${gameArray.length} her)</h3>`;
-        html += '<ul class="nominee-grid">';
-        
-        gameArray.forEach(game => {
-            const iconSrc = getGameIcon(game);
-            html += `
-                <li class="nominee-item">
-                    <img src="${iconSrc}" alt="Ikona hry ${escapeHtml(game)}" class="nominee-icon" loading="lazy">
-                    <span>${escapeHtml(game)}</span>
-                </li>
-            `;
-        });
-        html += '</ul>';
-        return html;
-    };
-
-    // Vykreslení obou kategorií
-    div.innerHTML = renderList("Hra roku 2025", GAMES_2025);
-    div.innerHTML += renderList("Klasiky", GAMES_2009_OPTIMIZED);
-}
-
 
 /* ===========================
     VÍTĚZOVÉ – Zobrazení
@@ -378,3 +380,4 @@ function clearWinners() {
     }
 
 }
+
